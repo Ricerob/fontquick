@@ -2,9 +2,9 @@
   "name": "nextjs-firebase-tailwindcss",
   "version": "12.3.1",
   "author": {
-    "name": "Adel Chemi",
-    "email": "adelchemi6@gmail.com",
-    "url": "https://github.com/chemiadel"
+    "name": "Robby Rice",
+    "email": "riceslif@gmail.com",
+    "url": "https://github.com/ricerob"
   },
   "private": false,
   "scripts": {
@@ -28,7 +28,6 @@
     "autoprefixer": "^10.3.4",
     "eslint": "7.32.0",
     "eslint-config-airbnb": "^19.0.4",
-    "eslint-config-import": "^0.13.0",
     "eslint-config-next": "^12.3.1",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-import": "^2.24.2",

@@ -3,6 +3,7 @@ import { getAuth, onAuthStateChanged, signOut as signout } from "firebase/auth";
 import { setCookie, destroyCookie } from "nookies";
 
 export type TIdTokenResult = {
+  email: string | number | boolean | {} | ReactElement<any, string | JSXElementConstructor<any>> | ReactNodeArray | ReactPortal | null | undefined;
   token: string;
   expirationTime: string;
   authTime: string;

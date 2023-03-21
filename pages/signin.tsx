@@ -16,7 +16,7 @@ const Home: NextPage = () => {
 
   if (loading) return null;
 
-  if (user) return <h1>U already logged</h1>;
+  if (user) return <h1>You're already logged in.</h1>;
 
   const auth = getAuth();
 
@@ -64,7 +64,7 @@ const Home: NextPage = () => {
   return (
     <>
       <Head>
-        <title>Signin</title>
+        <title>Sign-in</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className="m-auto my-24 w-1/3 h-1/3 divide-y-4 space-y-1">
