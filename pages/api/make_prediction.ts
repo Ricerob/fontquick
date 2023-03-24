@@ -1,14 +1,25 @@
-// Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type { NextApiRequest, NextApiResponse } from "next";
+import { getFunctions, httpsCallable } from "firebase/functions";
+
+const functions = getFunctions();
+const makePred = httpsCallable(functions, 'makePrediction');
 
 type Data = {
-    data: string;
+  data: string;
 };
 
-export default function handler(
-    req: NextApiRequest,
-    res: NextApiResponse<Data>
+export default async function handler(
+  req: NextApiRequest,
+  res: NextApiResponse<Data>
 ) {
-    console.log(req.body.prompt)
-    res.status(200).json({ data: "John Doe" });
+  const { prompt } = req.body;
+
+  makePred({ prompt: prompt }).then((result) => {
+    console.log(result);
+    const resultData = result.data as string;
+    res.status(200).json({ data: resultData });
+  }).catch((error) => {
+    console.log(error);
+    res.status(500).send(error.message);
+  });
 }

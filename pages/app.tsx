@@ -24,8 +24,8 @@ const App: NextPage = () => {
     });
   
     const data = await response.json();
-    console.log(data); // do something with the data, like updating the UI
-    setResult(data.data)
+    console.log(data);
+    setResult(data.data.prompt)
   }
   
 
