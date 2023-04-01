@@ -6,31 +6,27 @@ export default function Header(props: any) {
 
   return (
     <div className="flex h-full flex-row">
-      <div className="flex-1 my-auto">
+      <div className="flex-1 my-auto ml-3">
         <Link href="/">
-          <button>Home</button>
+          <button>fontquick</button>
         </Link>
       </div>
 
-      <div className="m-auto space-x-2">
+      <div className="m-auto space-x-2 mr-3">
         {!user && !loading ? (
           <>
-            <Link passHref href="/signup">
-              <button className="m-auto"> Sign-up</button>
-            </Link>
-
             <Link passHref href="/signin">
-              <button className="m-auto"> Sign-in</button>
+              <button className="m-auto">signin</button>
             </Link>
           </>
         ) : null}
         {user ? (
           <>
             <Link href="/app">
-              <button>App</button>
+              <button>fonts</button>
             </Link>
 
-            <button onClick={signOut}> Signout</button>
+            <button onClick={signOut}>signout</button>
           </>
         ) : null}
       </div>

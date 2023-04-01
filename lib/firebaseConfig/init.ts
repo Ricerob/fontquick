@@ -1,7 +1,9 @@
 // Import the functions you need from the SDKs you need
-import { initializeApp } from "firebase/app";
+import { initializeApp, getApps } from "firebase/app";
 import { getFunctions } from 'firebase/functions';
 import { getAuth } from "firebase/auth";
+import { getStorage } from "firebase/storage"
+import { getDatabase } from "firebase/database"
 
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -15,10 +17,17 @@ export default function initFirebase() {
     storageBucket: process.env.NEXT_PUBLIC_storageBucket,
     messagingSenderId: process.env.NEXT_PUBLIC_messagingSenderId,
     appId: process.env.NEXT_PUBLIC_appId,
+    databaseURL: process.env.NEXT_PUBLIC_DBURL
   };
 
   // Initialize Firebase
-  const app = initializeApp(firebaseConfig);
-  const auth = getAuth(app);
-  const functions = getFunctions(app);
+  const apps = getApps();
+  if (!apps.length) {
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+    const functions = getFunctions(app);
+    const storage = getStorage(app);
+    const database = getDatabase(app);
+  }
+
 }

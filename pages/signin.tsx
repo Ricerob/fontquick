@@ -8,15 +8,20 @@ import {
 } from "firebase/auth";
 import { useState } from "react";
 import { useAuth } from "../lib/authContext";
+import { useRouter } from "next/router";
 
 const Home: NextPage = () => {
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
   const { user, loading } = useAuth();
+  const router = useRouter();
 
   if (loading) return null;
 
-  if (user) return <h1>You're already logged in.</h1>;
+  if (user) {
+    router.push('/app')
+    return <h1>You're already logged in.</h1>
+  };
 
   const auth = getAuth();
 
@@ -67,25 +72,32 @@ const Home: NextPage = () => {
         <title>Sign-in</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <div className="m-auto my-24 w-1/3 h-1/3 divide-y-4 space-y-1">
-        <div className="space-y-1">
-          <input
-            type="email"
-            onChange={(e) => setEmail(e.target.value)}
-            className="border border-current	"
-          />
-          <br />
-          <input
-            type="password"
-            onChange={(e) => setPassword(e.target.value)}
-            className="border border-current	"
-          />
-          <br />
-          <button onClick={() => login()}>Login</button>
+      <div className="w-2/3 mx-auto mt-24 p-4 border rounded-lg shadow-lg bg-white">
+        <h2 className="text-center text-2xl font-bold mb-4">Sign In</h2>
+        <input
+          type="email"
+          onChange={(e) => setEmail(e.target.value)}
+          placeholder="Email"
+          className="w-full p-2 border border-gray-300 rounded mb-4"
+        />
+        <input
+          type="password"
+          onChange={(e) => setPassword(e.target.value)}
+          placeholder="Password"
+          className="w-full p-2 border border-gray-300 rounded mb-4"
+        />
+        <button onClick={() => login()} className="w-full bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+          Login
+        </button>
+        <div className="my-4">
+          <hr className="w-full" />
         </div>
-        <div>
-          <button onClick={() => loginWithGoogle()}>Login with Google</button>
-        </div>
+        <button onClick={() => loginWithGoogle()} className="w-full bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">
+          Login with Google
+        </button>
+      </div>
+      <div className="text-center pt-2">
+        <a href='/signup'>Need an account?</a>
       </div>
     </>
   );

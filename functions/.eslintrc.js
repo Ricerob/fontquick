@@ -28,5 +28,13 @@ module.exports = {
     "quotes": ["warn", "double"],
     "import/no-unresolved": 0,
     "indent": ["warn", 4],
+    "new-cap": "warn",
+    "semi": "warn",
+    "comma-dangle": "warn",
+    "object-curly-spacing": "warn",
+    "require-jsdoc": "warn",
+    "@typescript-eslint/ban-types": "warn",
+    "padded-blocks": "warn",
+    "max-len": "warn"
   },
 };

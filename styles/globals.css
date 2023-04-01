@@ -1,0 +1,23 @@
+#idxSVG {
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.wave {
+  display: inline-block;
+  position: relative;
+  width: 100%;
+  padding-bottom: 100%;
+  vertical-align: middle;
+  overflow: hidden;
+  background-color: #b2d8bb;
+}
+
+.arrow {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
