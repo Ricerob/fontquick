@@ -1,5 +1,6 @@
 import type { NextPage } from "next";
 import Head from "next/head";
+import Link from "next/link";
 import {
   getAuth,
   createUserWithEmailAndPassword,
@@ -99,7 +100,7 @@ const Home: NextPage = () => {
           </button>
         </div>
         <div className="text-center pt-2">
-            <a href='/signin'>Have an account?</a>
+            <Link href='/signin'>Have an account?</Link>
         </div>
       </>
     </>
