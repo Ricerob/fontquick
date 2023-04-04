@@ -1,4 +1,4 @@
-import { useState, useEffect, useContext, createContext } from "react";
+import { useState, useEffect, useContext, createContext, ReactElement, JSXElementConstructor, ReactNodeArray, ReactPortal } from "react";
 import { getAuth, onAuthStateChanged, signOut as signout } from "firebase/auth";
 import { setCookie, destroyCookie } from "nookies";
 
@@ -35,10 +35,8 @@ export default function AuthContextProvider({ children }: Props) {
 
   useEffect(() => {
     const auth = getAuth();
-    onAuthStateChanged(auth, (user) => {
-      //user returned from firebase not the state
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
       if (user) {
-        // Save token for backend calls
         user.getIdToken().then((token) =>
           setCookie(null, "idToken", token, {
             maxAge: 30 * 24 * 60 * 60,
@@ -46,12 +44,15 @@ export default function AuthContextProvider({ children }: Props) {
           })
         );
 
-        // Save decoded token on the state
-        user.getIdTokenResult().then((result) => setUser(result));
+        user.getIdTokenResult().then((result) =>
+          setUser({ ...(result as TIdTokenResult), email: user.email })
+        );
+      } else {
+        setUser(null);
       }
-      if (!user) setUser(null);
       setLoading(false);
     });
+    return unsubscribe;
   }, []);
 
   return (
