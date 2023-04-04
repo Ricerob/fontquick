@@ -86,13 +86,13 @@ const Home: NextPage = () => {
           placeholder="Password"
           className="w-full p-2 border border-gray-300 rounded mb-4"
         />
-        <button onClick={() => login()} className="w-full bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+        <button onClick={() => login()} className="w-full bg-pastel-500 hover:bg-pastel-600 text-white font-bold py-2 px-4 rounded">
           Login
         </button>
         <div className="my-4">
           <hr className="w-full" />
         </div>
-        <button onClick={() => loginWithGoogle()} className="w-full bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">
+        <button onClick={() => loginWithGoogle()} className="w-full bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded">
           Login with Google
         </button>
       </div>

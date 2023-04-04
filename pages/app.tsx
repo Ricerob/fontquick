@@ -21,7 +21,7 @@ type FontInfoResponse = {
 
 const App: NextPage = () => {
   const { user, loading } = useAuth();
-  const [result, setResult] = useState<string>('Result goes here')
+  const [result, setResult] = useState<string>('Make your request as specific as possible!')
   const [fontInfo, setFontInfo] = useState<FontInfo[]>();
   const [currentIndex, setCurrentIndex] = useState(0);
 
@@ -68,14 +68,14 @@ const App: NextPage = () => {
   return (
     <>
       <Head>
-        <title>FontQuick</title>
+        <title>fontquick</title>
       </Head>
 
       <main>
         <div className="flex justify-center items-center">
           <div className="bg-gray-100 p-8 rounded shadow-md my-10">
             <input className="w-full px-4 py-2 mb-4 border rounded" type="text" placeholder="Enter text here" id='prompt_text' />
-            <button className="w-full bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+            <button className="w-full bg-pastel-400 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
               onClick={() => getPrediction()}>
               Recommend
             </button>
