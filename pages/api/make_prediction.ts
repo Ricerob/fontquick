@@ -2,7 +2,6 @@ import type { NextApiRequest, NextApiResponse } from "next";
 import { getStorage, ref, getDownloadURL } from "firebase/storage";
 import { getDatabase, ref as dbRef, child, get } from "firebase/database";
 import fs from 'fs';
-import buffer from 'buffer';
 
 type FontRec = {
   index: number,
