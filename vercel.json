@@ -1,7 +1,15 @@
 {
-    "functions": { "directory": false },
+    "functions": {
+        "directory": {
+            "include": [
+                "**/*.js"
+            ]
+        }
+    },
     "routes": [
-      { "src": "/api/(.*)", "dest": "/api/$1" }
+        {
+            "src": "/api/(.*)",
+            "dest": "/api/$1"
+        }
     ]
-  }
-  
+}
