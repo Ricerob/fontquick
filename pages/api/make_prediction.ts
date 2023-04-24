@@ -268,7 +268,7 @@ async function getFontsLocal(prompt: string): Promise<FontInfo[]> {
   const n = new npyjs();
   var result = [];
 
-  const data = await fs.readFileSync('./data/v1_font_embeddings.npy')
+  const data = await fs.readFileSync('./public/v1_font_embeddings.npy')
   const uint8Array = new Uint8Array(data)
   let buf = uint8Array.buffer
 
